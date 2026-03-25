@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Broward County Senior Care Market Brief</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.5; }
+  .header { background: linear-gradient(135deg, #1e3a5f 0%, #0f2440 100%); padding: 40px 60px 30px; border-bottom: 3px solid #2563eb; }
+  .header h1 { font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
+  .header .subtitle { font-size: 14px; color: #93c5fd; margin-top: 4px; }
+  .header .date { font-size: 12px; color: #7dd3fc; margin-top: 8px; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 30px 60px; }
+
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 30px; }
+  .stat-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .stat-number { font-size: 32px; font-weight: 800; color: #2563eb; }
+  .stat-number.green { color: #16a34a; }
+  .stat-number.amber { color: #d97706; }
+  .stat-number.purple { color: #7c3aed; }
+  .stat-label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  .section { margin-bottom: 30px; }
+  .section-title { font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; display: flex; align-items: center; gap: 8px; }
+  .badge { display: inline-block; background: #e0f2fe; color: #0369a1; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 99px; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .card-title { font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+  .card-subtitle { font-size: 10px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { text-align: left; color: #64748b; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 8px; border-bottom: 2px solid #e2e8f0; }
+  td { padding: 6px 8px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+  tr:hover td { background: #f8fafc; }
+
+  .tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin: 1px 2px; }
+  .tag-blue { background: #dbeafe; color: #1d4ed8; }
+  .tag-green { background: #dcfce7; color: #15803d; }
+  .tag-amber { background: #fef3c7; color: #b45309; }
+  .tag-purple { background: #f3e8ff; color: #7c3aed; }
+  .tag-red { background: #fee2e2; color: #dc2626; }
+  .tag-teal { background: #ccfbf1; color: #0d9488; }
+
+  .zip-table td:first-child { font-weight: 700; color: #2563eb; }
+  .highlight { color: #d97706; font-weight: 700; }
+
+  .two-col { columns: 2; column-gap: 24px; }
+  .two-col li { break-inside: avoid; }
+
+  ul { list-style: none; padding: 0; }
+  li { font-size: 12px; color: #334155; padding: 3px 0; }
+  li strong { color: #0f172a; }
+
+  .stars { color: #d97706; }
+  .phone { color: #16a34a; }
+  .web { color: #2563eb; }
+
+  .insight-box { background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%); border: 1px solid #93c5fd; border-radius: 10px; padding: 16px 20px; margin-bottom: 20px; }
+  .insight-box h3 { font-size: 13px; color: #1d4ed8; margin-bottom: 6px; }
+  .insight-box p { font-size: 12px; color: #334155; }
+
+  .opp-box { background: linear-gradient(135deg, #f0fdf4 0%, #f8fafc 100%); border: 1px solid #86efac; border-radius: 10px; padding: 16px 20px; margin-bottom: 20px; }
+  .opp-box h3 { font-size: 13px; color: #15803d; margin-bottom: 6px; }
+  .opp-box p { font-size: 12px; color: #334155; }
+
+  .pipeline { display: flex; align-items: stretch; gap: 0; margin: 20px 0; }
+  .pipe-stage { flex: 1; padding: 16px 14px; position: relative; text-align: center; }
+  .pipe-stage::after { content: ''; position: absolute; right: -12px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 20px solid transparent; border-bottom: 20px solid transparent; z-index: 2; }
+  .pipe-1 { background: #dbeafe; border-radius: 8px 0 0 8px; }
+  .pipe-1::after { border-left: 12px solid #dbeafe; }
+  .pipe-2 { background: #e0e7ff; }
+  .pipe-2::after { border-left: 12px solid #e0e7ff; }
+  .pipe-3 { background: #fef3c7; }
+  .pipe-3::after { border-left: 12px solid #fef3c7; }
+  .pipe-4 { background: #f3e8ff; }
+  .pipe-4::after { border-left: 12px solid #f3e8ff; }
+  .pipe-5 { background: #dcfce7; border-radius: 0 8px 8px 0; }
+  .pipe-5::after { display: none; }
+  .pipe-icon { font-size: 24px; margin-bottom: 6px; }
+  .pipe-title { font-size: 12px; font-weight: 800; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px; }
+  .pipe-detail { font-size: 10px; color: #475569; margin-top: 4px; line-height: 1.4; }
+  .pipe-count { font-size: 18px; font-weight: 800; color: #2563eb; margin-top: 4px; }
+
+  .channel-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+  .channel { background: #ffffff; border-radius: 8px; padding: 14px; border-left: 3px solid; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .channel-hospital { border-color: #3b82f6; }
+  .channel-professional { border-color: #a855f7; }
+  .channel-community { border-color: #22c55e; }
+  .channel-title { font-size: 11px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+  .channel-sub { font-size: 10px; color: #64748b; }
+  .channel-arrow { font-size: 11px; color: #64748b; margin-top: 6px; }
+  .channel-result { font-size: 11px; font-weight: 700; margin-top: 2px; }
+  .channel-result.blue { color: #2563eb; }
+  .channel-result.purple { color: #7c3aed; }
+  .channel-result.green { color: #16a34a; }
+
+  /* Talking point tooltips */
+  .tp { position: relative; cursor: help; }
+  .tp::after { content: ''; display: inline-block; width: 8px; height: 8px; background: #f59e0b; border-radius: 50%; margin-left: 6px; vertical-align: middle; animation: pulse 2s infinite; }
+  .tp .tp-text { display: none; position: absolute; bottom: calc(100% + 8px); left: 0; width: 360px; background: #fefce8; color: #713f12; border: 2px solid #f59e0b; border-radius: 10px; padding: 12px 14px; font-size: 12px; font-weight: 400; line-height: 1.5; z-index: 100; box-shadow: 0 4px 16px rgba(0,0,0,0.12); pointer-events: none; }
+  .tp .tp-text::after { content: ''; position: absolute; top: 100%; left: 20px; border: 8px solid transparent; border-top-color: #f59e0b; }
+  .tp:hover .tp-text { display: block; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 20px; }
+
+  @media print {
+    .tp::after { display: none !important; }
+    .tp .tp-text { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Broward County Senior Care Market Intelligence</h1>
+  <div class="subtitle">Home Care, Home Health, Hospice & Placement Services &mdash; Territory Analysis</div>
+  <div style="font-size: 13px; color: #cbd5e1; margin-top: 10px; font-weight: 600;">Prepared by <strong style="color: #f8fafc;">Shane Southern</strong> &mdash; Senior Community Stars &middot; Territory Intelligence</div>
+  <div class="date">Prepared March 25, 2026 &middot; Data: CMS, NPPES, Census ACS, Florida AHCA</div>
+</div>
+
+<div class="container">
+
+<!-- Key Stats -->
+<div class="stats-row">
+  <div class="stat-card tp">
+    <span class="tp-text">Broward County has nearly 170,000 seniors 65 and older — that's a massive addressable market for home care. And over 50,000 of them live alone, which means they're the ones most likely to need services.</span>
+    <div class="stat-number">169,041</div>
+    <div class="stat-label">Seniors 65+ in Territory</div>
+  </div>
+  <div class="stat-card tp">
+    <span class="tp-text">There are over 1,200 care communities in the area — assisted living, memory care, SNFs. Every one of them is a potential staffing client, and every one of them has residents whose families may need private duty support.</span>
+    <div class="stat-number green">1,257</div>
+    <div class="stat-label">Care Communities</div>
+  </div>
+  <div class="stat-card tp">
+    <span class="tp-text">206 Medicare-certified home health agencies — that's the competition. The market is fragmented, no one dominates. A well-connected national franchise with strong corporate backing has a real opportunity to stand out.</span>
+    <div class="stat-number amber">206</div>
+    <div class="stat-label">Home Health Agencies</div>
+  </div>
+  <div class="stat-card tp">
+    <span class="tp-text">I've mapped over 3,200 potential referral partners in Broward — hospitals, SNFs, doctors, attorneys, hospice, VA, community organizations. These are the people I'd be building relationships with from day one.</span>
+    <div class="stat-number purple">3,200+</div>
+    <div class="stat-label">Referral Partners in DB</div>
+  </div>
+</div>
+
+<!-- Market Insight -->
+<div class="insight-box">
+  <h3>Market Landscape</h3>
+  <p>Broward County has <strong>169,000+ seniors 65+</strong> across 20 key zip codes, with heavy concentration in western Broward (33321 Coral Springs: 14,099 seniors, 33322 Coral Springs: 12,949).
+  <strong>246 home care providers</strong> compete for market share alongside <strong>206 Medicare-certified home health agencies</strong>.
+  The market is fragmented &mdash; no single operator holds more than 5 locations (Sinceri Senior Living leads with 5). This creates massive opportunity for a well-connected franchise with strong corporate support.</p>
+</div>
+
+<div class="opp-box">
+  <h3>Growth Opportunity for Home Care + Placement + Staffing</h3>
+  <p>With <strong>55 skilled nursing facilities</strong>, <strong>108 assisted living communities</strong>, and <strong>9 major hospitals</strong> in territory, the discharge pipeline is robust.
+  Key relationships to build: <strong>Broward Health system</strong> (3 hospitals including Broward Health North in Deerfield Beach), <strong>Baptist Health Boca Raton Regional</strong>, <strong>Delray Medical Center</strong>, and <strong>West Boca Medical Center</strong>.
+  The <strong>10 hospice providers</strong> (led by VITAS and Trustbridge) represent cross-referral opportunities for private duty overlap patients.</p>
+</div>
+
+<!-- REFERRAL PIPELINE STRATEGY -->
+<div class="section">
+  <div class="section-title tp">Referral Pipeline Strategy <span class="badge">HOW CLIENTS FLOW IN</span>
+    <span class="tp-text">This is how I see the business working. Everything starts with a relationship — a discharge planner, an attorney, a community leader. When they have someone who needs care, they pick up the phone and call us. Let me walk you through the three channels.</span>
+  </div>
+
+  <!-- Pipeline funnel -->
+  <div class="pipeline">
+    <div class="pipe-stage pipe-1">
+      <div class="pipe-icon">🏥</div>
+      <div class="pipe-title">Referral Source</div>
+      <div class="pipe-detail">Hospitals, SNFs, Doctors,<br>Attorneys, Community Orgs</div>
+      <div class="pipe-count">3,200+</div>
+    </div>
+    <div class="pipe-stage pipe-2">
+      <div class="pipe-icon">🤝</div>
+      <div class="pipe-title">Relationship</div>
+      <div class="pipe-detail">In-person visits, lunch & learns,<br>care conferences, events</div>
+      <div class="pipe-count">Weekly</div>
+    </div>
+    <div class="pipe-stage pipe-3">
+      <div class="pipe-icon">📞</div>
+      <div class="pipe-title">Referral Call</div>
+      <div class="pipe-detail">"I have a patient discharging<br>Thursday who needs home care"</div>
+      <div class="pipe-count">Goal: 10+/wk</div>
+    </div>
+    <div class="pipe-stage pipe-4">
+      <div class="pipe-icon">📋</div>
+      <div class="pipe-title">Assessment</div>
+      <div class="pipe-detail">In-home consult, care plan,<br>match caregiver to client</div>
+      <div class="pipe-count">48hr</div>
+    </div>
+    <div class="pipe-stage pipe-5">
+      <div class="pipe-icon">💰</div>
+      <div class="pipe-title">Active Client</div>
+      <div class="pipe-detail">Private duty hours,<br>staffing contract, or placement</div>
+      <div class="pipe-count">Revenue</div>
+    </div>
+  </div>
+
+  <!-- Three referral channels -->
+  <div style="font-size: 13px; font-weight: 700; color: #f8fafc; margin: 20px 0 10px;">Three Referral Channels to Build</div>
+
+  <div class="channel-row">
+    <div class="channel channel-hospital tp">
+      <span class="tp-text">The hospital discharge pipeline is the highest-volume channel. When a patient is leaving the hospital or finishing rehab at a SNF, someone has to arrange home care. That's the discharge planner or social worker — they're the gatekeeper. My job is to be the first person they think of. I'd start with Broward Health North, Boca Regional, and Delray Medical — those three alone cover most of the territory.</span>
+      <div class="channel-title">Channel 1: Hospital Discharge Pipeline</div>
+      <div class="channel-sub">Highest volume. Patients discharged home need immediate care.</div>
+      <div class="channel-arrow">Targets:</div>
+      <ul style="font-size: 10px; color: #cbd5e1; padding-left: 14px; margin: 4px 0;">
+        <li>Discharge planners at 5 major hospitals</li>
+        <li>Social workers at 10+ SNF/rehab facilities</li>
+        <li>Hospice liaisons (VITAS, Trustbridge)</li>
+      </ul>
+      <div class="channel-arrow">How it works:</div>
+      <div class="channel-sub">Patient is leaving hospital/rehab → discharge planner needs home care → they call us → caregiver starts within 48 hours</div>
+      <div class="channel-result blue">= Private Duty + Staffing Revenue</div>
+    </div>
+    <div class="channel channel-professional tp">
+      <span class="tp-text">The professional network is higher value per client. Elder law attorneys are gold — families come to them stressed about Medicaid, overwhelmed by care decisions. The attorney says 'let me connect you with someone who handles home care' and that's us. There are 10 elder law firms in territory I'd target. Same with geriatricians — when a doctor sees a patient declining, they recommend home care to the family.</span>
+      <div class="channel-title">Channel 2: Professional Referral Network</div>
+      <div class="channel-sub">Higher value per client. Trusted advisor relationship.</div>
+      <div class="channel-arrow">Targets:</div>
+      <ul style="font-size: 10px; color: #cbd5e1; padding-left: 14px; margin: 4px 0;">
+        <li>Elder law attorneys (10 firms in territory)</li>
+        <li>Geriatricians &amp; neurologists (7+ physicians)</li>
+        <li>Care managers &amp; geriatric care consultants</li>
+      </ul>
+      <div class="channel-arrow">How it works:</div>
+      <div class="channel-sub">Family visits attorney for Medicaid planning → attorney says "while we work on this, here's who handles home care" → family calls us</div>
+      <div class="channel-result purple">= Private Duty + Placement Revenue</div>
+    </div>
+    <div class="channel channel-community tp">
+      <span class="tp-text">The community channel is slower to build but incredibly sticky once you're in. Broward has a huge Jewish community — the JCCs, the Jewish Family Services, the synagogues. These organizations serve thousands of seniors and their families trust them completely. When a rabbi or program director hears a member is struggling with care, their recommendation carries enormous weight. Same with the Area Agency on Aging — they're the gateway for seniors seeking any kind of service. And the 7 VA facilities are another pipeline for veterans who need home care.</span>
+      <div class="channel-title">Channel 3: Community &amp; Faith-Based</div>
+      <div class="channel-sub">Long-cycle, trust-based. Steady pipeline once established.</div>
+      <div class="channel-arrow">Targets:</div>
+      <ul style="font-size: 10px; color: #cbd5e1; padding-left: 14px; margin: 4px 0;">
+        <li>JCCs, synagogues, churches (strong in Broward)</li>
+        <li>Area Agency on Aging (ADRC gateway)</li>
+        <li>Senior centers (Volen Center, JFS orgs)</li>
+        <li>VA facilities (7 locations)</li>
+      </ul>
+      <div class="channel-arrow">How it works:</div>
+      <div class="channel-sub">Rabbi/pastor/program director hears a member's family struggling with care → recommends us → family calls</div>
+      <div class="channel-result green">= Private Duty + Placement Revenue</div>
+    </div>
+  </div>
+
+  <!-- Revenue model -->
+  <div style="margin-top: 20px;">
+    <div class="card" style="border-color: #334155;">
+      <div class="card-subtitle">Revenue per Service Line</div>
+      <table>
+        <thead>
+          <tr><th>Service</th><th>Who Pays</th><th>Typical Revenue</th><th>Source</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Private Duty Home Care</strong></td><td>Family (out of pocket / LTC insurance)</td><td>$25-35/hr &times; 20-40 hrs/week per client</td><td>Hospital discharge, attorneys, community</td></tr>
+          <tr><td><strong>Healthcare Staffing</strong></td><td>Facility (SNF, AL, hospital)</td><td>Bill rate minus pay rate &times; hours filled</td><td>Direct B2B relationships with facilities</td></tr>
+          <tr><td><strong>Placement Services</strong></td><td>Receiving community (referral fee)</td><td>Typically % of first month's rent</td><td>Families who outgrow home care</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size: 10px; color: #64748b; margin-top: 8px;">Key advantage: all three services create a closed loop. A client starts with private duty, may need staffing at their AL, and eventually needs placement. One relationship = three revenue streams.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Top Senior Zips -->
+<div class="section">
+  <div class="section-title tp">Top Senior Population Zip Codes <span class="badge">20 ZIPS</span>
+    <span class="tp-text">I mapped every zip code in Broward by senior population, income, and home value. The western corridor — Coral Springs, Tamarac, Sunrise — has the highest density of seniors and the most affordable homes, which means these families are more likely to need home care services. The coastal zips — Pompano Beach East, Fort Lauderdale Beach, Parkland — those are your premium private-pay clients. I'd segment my outreach by these two tiers.</span>
+  </div>
+  <table class="zip-table">
+    <thead>
+      <tr><th>Zip</th><th>Area</th><th>Seniors 65+</th><th>Living Alone</th><th>Median Home Value</th><th>Opportunity</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>33321</td><td>Coral Springs / Tamarac</td><td>14,099</td><td>4,530</td><td>$259,200</td><td><span class="tag tag-green">HIGH</span></td></tr>
+      <tr><td>33322</td><td>Coral Springs / Sunrise</td><td>12,949</td><td>4,702</td><td>$258,300</td><td><span class="tag tag-green">HIGH</span></td></tr>
+      <tr><td>33319</td><td>Tamarac / Sunrise</td><td>11,738</td><td>3,470</td><td>$228,000</td><td><span class="tag tag-green">HIGH</span></td></tr>
+      <tr><td>33311</td><td>Fort Lauderdale</td><td>11,193</td><td>3,020</td><td>$276,600</td><td><span class="tag tag-amber">MEDIUM</span></td></tr>
+      <tr><td>33442</td><td>Deerfield Beach</td><td>10,772</td><td>4,446</td><td>$231,400</td><td><span class="tag tag-green">HIGH</span></td></tr>
+      <tr><td>33062</td><td>Pompano Beach (East)</td><td>9,812</td><td>3,497</td><td>$511,800</td><td><span class="tag tag-purple">PREMIUM</span></td></tr>
+      <tr><td>33308</td><td>Fort Lauderdale Beach</td><td>9,622</td><td>3,338</td><td>$536,900</td><td><span class="tag tag-purple">PREMIUM</span></td></tr>
+      <tr><td>33324</td><td>Plantation</td><td>8,774</td><td>2,073</td><td>$350,500</td><td><span class="tag tag-amber">MEDIUM</span></td></tr>
+      <tr><td>33312</td><td>Fort Lauderdale (SW)</td><td>8,683</td><td>1,830</td><td>$397,800</td><td><span class="tag tag-amber">MEDIUM</span></td></tr>
+      <tr><td>33064</td><td>Pompano Beach (West)</td><td>8,621</td><td>2,662</td><td>$293,100</td><td><span class="tag tag-green">HIGH</span></td></tr>
+      <tr><td>33313</td><td>Lauderhill</td><td>7,992</td><td>2,187</td><td>$236,300</td><td><span class="tag tag-green">HIGH</span></td></tr>
+      <tr><td>33065</td><td>Coral Springs</td><td>7,309</td><td>1,557</td><td>$416,800</td><td><span class="tag tag-amber">MEDIUM</span></td></tr>
+      <tr><td>33066</td><td>Coconut Creek / Margate</td><td>6,447</td><td>2,797</td><td>$212,000</td><td><span class="tag tag-green">HIGH</span></td></tr>
+      <tr><td>33317</td><td>Plantation (North)</td><td>6,439</td><td>897</td><td>$449,900</td><td><span class="tag tag-amber">MEDIUM</span></td></tr>
+      <tr><td>33441</td><td>Deerfield Beach (West)</td><td>6,315</td><td>2,030</td><td>$381,700</td><td><span class="tag tag-amber">MEDIUM</span></td></tr>
+      <tr><td>33068</td><td>Pompano Beach / N. Lauderdale</td><td>6,249</td><td>1,310</td><td>$288,600</td><td><span class="tag tag-green">HIGH</span></td></tr>
+      <tr><td>33060</td><td>Pompano Beach (Central)</td><td>5,777</td><td>1,843</td><td>$354,100</td><td><span class="tag tag-amber">MEDIUM</span></td></tr>
+      <tr><td>33069</td><td>Pompano Beach / Margate</td><td>5,647</td><td>2,122</td><td>$253,000</td><td><span class="tag tag-green">HIGH</span></td></tr>
+      <tr><td>33076</td><td>Parkland</td><td>5,321</td><td>868</td><td>$745,400</td><td><span class="tag tag-purple">PREMIUM</span></td></tr>
+      <tr><td>33351</td><td>Sunrise</td><td>5,282</td><td>773</td><td>$352,500</td><td><span class="tag tag-amber">MEDIUM</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size: 11px; color: #64748b; margin-top: 8px;">HIGH = high senior population + affordable homes (price-sensitive, likely to need care services). PREMIUM = affluent seniors willing to pay for premium private duty. Source: Census ACS 5-year.</p>
+</div>
+
+<!-- Key Referral Targets -->
+<div class="section">
+  <div class="section-title tp">Key Referral Relationship Targets <span class="badge">HOSPITALS + DISCHARGE</span>
+    <span class="tp-text">These are the highest-priority relationships in the territory. Every hospital and SNF here discharges patients who need home care. The discharge planner is the person who decides which agency gets the call. My first 30 days would be focused on getting face time with every discharge planner and social worker on this list.</span>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-subtitle">Hospital Systems (Discharge Planning)</div>
+      <ul>
+        <li><strong>Broward Health North</strong> &mdash; Deerfield Beach <span class="phone">(954) 786-6400</span></li>
+        <li><strong>Broward Health Imperial Point</strong> &mdash; Fort Lauderdale <span class="phone">(954) 776-8500</span></li>
+        <li><strong>Boca Raton Regional Hospital (Baptist Health)</strong> &mdash; Boca Raton <span class="phone">(561) 955-7100</span></li>
+        <li><strong>Delray Medical Center</strong> &mdash; Delray Beach <span class="phone">(561) 495-3737</span></li>
+        <li><strong>West Boca Medical Center</strong> &mdash; Boca Raton <span class="phone">(561) 488-8100</span></li>
+        <li><strong>Holy Cross Hospital</strong> &mdash; Fort Lauderdale</li>
+        <li><strong>Memorial Regional Hospital South</strong> &mdash; Hollywood</li>
+        <li><strong>Kindred Hospital South Florida</strong> &mdash; Hollywood (LTACH)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-subtitle">SNF / Rehab Facilities (High-Volume Discharge)</div>
+      <ul>
+        <li><strong>Avante at Boca Raton</strong> <span class="stars">4.2&#9733;</span></li>
+        <li><strong>Broward Nursing & Rehab Center</strong> &mdash; Fort Lauderdale <span class="stars">4.2&#9733;</span></li>
+        <li><strong>The Encore at Boca Raton</strong> <span class="phone">(561) 392-3000</span></li>
+        <li><strong>The Legacy at Boca Raton</strong> <span class="phone">(561) 395-5009</span></li>
+        <li><strong>Deerfield Beach Health & Rehab</strong> <span class="phone">(954) 943-6800</span></li>
+        <li><strong>Pompano Health & Rehab</strong> <span class="phone">(954) 942-5530</span></li>
+        <li><strong>Margate Health & Rehab</strong> <span class="phone">(954) 979-6401</span></li>
+        <li><strong>Solaris Healthcare Coconut Creek</strong> <span class="phone">(954) 968-8333</span></li>
+        <li><strong>Coral Plaza</strong> &mdash; Margate <span class="stars">4.4&#9733;</span></li>
+        <li><strong>Alexander Nininger Veterans Nursing Home</strong> &mdash; Pembroke Pines <span class="stars">5.5&#9733;</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Competitive Landscape -->
+<div class="section">
+  <div class="section-title tp">Home Health & Hospice Competitive Landscape
+    <span class="tp-text">There are 206 home health agencies in the territory, but the market is extremely fragmented — no single player dominates. The top-rated agencies are small independents. That's actually good news: a national franchise with corporate support, brand recognition, and staffing depth can differentiate immediately. On hospice, VITAS and Trustbridge own the market — they're not competition, they're cross-referral partners. Their patients' families often need private duty care alongside hospice.</span>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-subtitle">Top-Rated Home Health Agencies <span class="badge">CMS STAR RATINGS</span></div>
+      <ul>
+        <li><strong>Complete Home Care of Broward</strong> &mdash; Deerfield Beach <span class="stars">5.0&#9733;</span></li>
+        <li><strong>Noble Home Health Services</strong> &mdash; Pompano Beach <span class="stars">5.0&#9733;</span></li>
+        <li><strong>Pines Home Health Care</strong> &mdash; Davie <span class="stars">5.0&#9733;</span></li>
+        <li><strong>Southeast Homecare</strong> &mdash; Fort Lauderdale <span class="stars">5.0&#9733;</span></li>
+        <li><strong>Community Care Providers</strong> &mdash; Pembroke Pines <span class="stars">5.0&#9733;</span></li>
+        <li><strong>Care-Tech Home Health</strong> &mdash; Pembroke Pines <span class="stars">5.0&#9733;</span></li>
+        <li><strong>Nightingale Home Healthcare</strong> &mdash; Pompano Beach <span class="stars">4.5&#9733;</span></li>
+        <li><strong>FirsTat Nursing Services</strong> &mdash; Fort Lauderdale <span class="stars">4.5&#9733;</span></li>
+        <li><strong>Trust USA Home Health</strong> &mdash; Plantation <span class="stars">4.5&#9733;</span></li>
+        <li><strong>United Care Home Health</strong> &mdash; Davie <span class="stars">4.5&#9733;</span></li>
+      </ul>
+      <p style="font-size: 10px; color: #64748b; margin-top: 8px;">206 total home health agencies in territory. Source: CMS Home Health Compare.</p>
+    </div>
+    <div class="card">
+      <div class="card-subtitle">Hospice Providers</div>
+      <ul>
+        <li><strong>VITAS Healthcare</strong> &mdash; Deerfield Beach <span class="phone">(954) 486-4085</span>
+          <br><span style="font-size: 10px; color: #94a3b8;">Largest national hospice provider. Inpatient unit at Broward Health North.</span></li>
+        <li><strong>Trustbridge Hospice (Empath Health)</strong> &mdash; Fort Lauderdale, Boca Raton, WPB
+          <br><span style="font-size: 10px; color: #94a3b8;">Regional leader. 3 offices in territory. Boca care center + Broward regional.</span></li>
+        <li><strong>Heartland Hospice (Broward)</strong> &mdash; Plantation</li>
+        <li><strong>AccentCare Hospice</strong> &mdash; Plantation</li>
+        <li><strong>Continuum Care of Broward</strong> &mdash; Sunrise</li>
+        <li><strong>Hospice by the Sea</strong> &mdash; Boca Raton</li>
+        <li><strong>Hospice of Gold Coast</strong> &mdash; Fort Lauderdale</li>
+      </ul>
+      <p style="font-size: 10px; color: #64748b; margin-top: 8px;">10 hospice providers. VITAS + Trustbridge dominate. Cross-referral opportunity for private duty overlap.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Referral Network Categories -->
+<div class="section">
+  <div class="section-title tp">Referral Network by Category <span class="badge">BROWARD COUNTY</span>
+    <span class="tp-text">I've already identified over 3,200 potential referral partners across all these categories. Elder law attorneys are the highest-value — they see families in crisis who need care NOW. Geriatricians see patients declining and recommend home care. The VA serves thousands of veterans who qualify for home care benefits. Each of these categories feeds the pipeline differently.</span>
+  </div>
+  <div class="grid-3">
+    <div class="card tp">
+      <span class="tp-text">Elder law attorneys are my #1 professional target. Families come to them overwhelmed — Medicaid planning, asset protection, guardianship. The attorney becomes a trusted advisor. When they say 'I know a great home care agency,' the family doesn't shop around. Siegel Law Group alone has 4 offices across the territory. I'd bring them lunch, learn their practice areas, and become their go-to referral.</span>
+      <div class="card-subtitle">Elder Law Attorneys</div>
+      <ul>
+        <li><strong>Siegel Law Group, P.A.</strong> &mdash; Boca, FTL, WPB, Naples <span class="phone">(561) 955-8515</span></li>
+        <li><strong>Elder Needs Law (Jason Neufeld)</strong> &mdash; Boca <span class="phone">(561) 763-9779</span></li>
+        <li><strong>Boca Elder Law (Gregory Glenn)</strong> &mdash; Boca <span class="phone">(561) 347-1071</span></li>
+        <li><strong>Cozen O'Connor (Howard Krooks, CELA)</strong> &mdash; Boca <span class="phone">(561) 750-3850</span></li>
+        <li><strong>Elder Law, P.A. (Ryan Smollar)</strong> &mdash; Boca <span class="phone">(561) 588-7512</span></li>
+        <li><strong>Greenberg Elder Law Services</strong> &mdash; Delray <span class="phone">(561) 274-9109</span></li>
+        <li><strong>Millman Law Group</strong> &mdash; Boca/Deerfield <span class="phone">(561) 463-6480</span></li>
+        <li><strong>Walser Law Firm</strong> &mdash; Boca <span class="phone">(561) 750-1040</span></li>
+        <li><strong>Schneider Elder Law</strong> &mdash; Plantation <span class="phone">(954) 382-1997</span></li>
+        <li><strong>Terner Elder Law</strong> &mdash; Boynton <span class="phone">(561) 247-2250</span></li>
+      </ul>
+    </div>
+    <div class="card tp">
+      <span class="tp-text">Geriatricians and neurologists are critical because they see patients at the tipping point — when someone's dementia progresses or mobility declines, the doctor is the one who tells the family 'it's time for home care.' Marcus Neuroscience Institute at Baptist Health is a major center. Dr. Galvin at UM Health is one of the top Alzheimer's researchers in the country. These are high-credibility referral sources.</span>
+      <div class="card-subtitle">Geriatricians & Neurologists</div>
+      <ul>
+        <li><strong>Boca Raton Neurologic Associates</strong> <span class="phone">(561) 338-8484</span></li>
+        <li><strong>Marcus Neuroscience Institute (Baptist)</strong> <span class="phone">(561) 955-7100</span></li>
+        <li><strong>The MA Brain Health (Dr. Graef)</strong> <span class="phone">(561) 918-0003</span></li>
+        <li><strong>Dr. James Galvin, MD</strong> &mdash; UM Health <span class="phone">(561) 869-6808</span></li>
+        <li><strong>Dr. Susan Rodell, MD</strong> <span class="phone">(561) 750-3520</span></li>
+        <li><strong>Dr. Thomas Hammond, MD</strong> <span class="phone">(561) 954-3646</span></li>
+        <li><strong>South FL Neurology Associates</strong> <span class="phone">(561) 939-0300</span></li>
+      </ul>
+    </div>
+    <div class="card tp">
+      <span class="tp-text">There are 7 VA facilities in Broward. Veterans qualify for VA-paid home care through the Aid & Attendance benefit — many families don't even know this exists. The VA social workers are the gatekeepers. If I can become the preferred home care provider for even 2-3 of these clinics, that's a steady stream of referrals with guaranteed payment from the VA.</span>
+      <div class="card-subtitle">VA Facilities</div>
+      <ul>
+        <li><strong>Deerfield Beach VA Clinic</strong></li>
+        <li><strong>Pompano Beach Vet Center</strong></li>
+        <li><strong>Fort Lauderdale Vet Center</strong></li>
+        <li><strong>Boca Raton VA Clinic</strong></li>
+        <li><strong>Hollywood VA Clinic</strong></li>
+        <li><strong>Pembroke Pines VA Clinic</strong></li>
+        <li><strong>William "Bill" Kling VA Clinic</strong> &mdash; Sunrise</li>
+      </ul>
+      <p style="font-size: 10px; color: #64748b; margin-top: 8px;">7 VA facilities. Veterans represent a significant referral pathway for home care services.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Community Organizations -->
+<div class="section">
+  <div class="section-title tp">Community & Faith-Based Partners <span class="badge">HIGH-VALUE REFERRAL SOURCES</span>
+    <span class="tp-text">Broward and South Palm Beach have one of the largest Jewish communities in the country. The JCCs, Jewish Family Services, and synagogues serve thousands of seniors. When a program director or rabbi hears that a member's parent needs help at home, their recommendation is gold. Goodman JFS alone serves all of Broward County. The Area Agency on Aging is the ADRC gateway — they're the first call for any senior looking for services.</span>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-subtitle">Jewish Community (Major Presence in Broward/Palm Beach)</div>
+      <ul>
+        <li><strong>Goodman JFS of Broward</strong> &mdash; Davie <span class="phone">(954) 370-2140</span></li>
+        <li><strong>Ruth & Norman Rales JFS</strong> &mdash; Boca <span class="phone">(561) 852-3333</span></li>
+        <li><strong>Alpert JFS of Palm Beach County</strong> &mdash; WPB <span class="phone">(561) 684-1991</span></li>
+        <li><strong>Levis JCC</strong> &mdash; Boca <span class="phone">(561) 852-3200</span></li>
+        <li><strong>Jewish Federation of South Palm Beach</strong> <span class="phone">(561) 852-3100</span></li>
+        <li><strong>B'nai Torah Congregation</strong> &mdash; Boca <span class="phone">(561) 392-8566</span></li>
+        <li><strong>Boca Raton Synagogue (BRS)</strong> <span class="phone">(561) 394-0394</span></li>
+        <li><strong>Temple Beth El</strong> &mdash; Boca <span class="phone">(561) 391-8900</span></li>
+        <li><strong>Chabad of Deerfield Beach</strong> <span class="phone">(954) 422-1735</span></li>
+        <li><strong>Chabad of Coconut Creek</strong> <span class="phone">(954) 427-7788</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-subtitle">Area Agencies on Aging & Senior Services</div>
+      <ul>
+        <li><strong>Area Agency on Aging of Broward County</strong> &mdash; Sunrise <span class="phone">(954) 745-9779</span>
+          <br><span style="font-size: 10px; color: #94a3b8;">ADRC gateway. Primary referral source for seniors seeking services.</span></li>
+        <li><strong>Area Agency on Aging Palm Beach / Treasure Coast</strong> <span class="phone">(561) 684-5885</span></li>
+        <li><strong>The Volen Center</strong> &mdash; Boca <span class="phone">(561) 395-8920</span>
+          <br><span style="font-size: 10px; color: #94a3b8;">Senior day services, meals, transportation. Key community hub.</span></li>
+        <li><strong>JAFCO</strong> &mdash; Jewish Adoption & Family Care Options</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Top Operators -->
+<div class="section">
+  <div class="section-title tp">Senior Living Operators in Territory <span class="badge">POTENTIAL STAFFING CLIENTS</span>
+    <span class="tp-text">These are the operators running assisted living and memory care communities in the territory. Every one of them struggles with CNA and HHA staffing — it's the #1 challenge in senior living right now. A home care franchise with healthcare staffing capabilities can walk in and say 'we can fill your open shifts AND serve your residents' families with private duty.' That's a dual revenue stream from a single relationship. Sinceri alone has 5 communities.</span>
+  </div>
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>Operator / Brand</th><th>Locations</th><th>Opportunity</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Sinceri Senior Living</strong></td><td>5</td><td><span class="tag tag-green">Staffing + Placement</span></td></tr>
+        <tr><td><strong>NuVision Management</strong></td><td>3</td><td><span class="tag tag-green">Staffing + Placement</span></td></tr>
+        <tr><td><strong>AgeWell Solvere Living</strong></td><td>3</td><td><span class="tag tag-green">Staffing + Placement</span></td></tr>
+        <tr><td><strong>Meridian Senior Living</strong></td><td>3</td><td><span class="tag tag-green">Staffing + Placement</span></td></tr>
+        <tr><td><strong>Discovery Senior Living</strong></td><td>2</td><td><span class="tag tag-amber">Staffing</span></td></tr>
+        <tr><td><strong>Artis Senior Living</strong></td><td>2</td><td><span class="tag tag-amber">Staffing</span></td></tr>
+        <tr><td><strong>Acts Retirement-Life Communities</strong></td><td>2</td><td><span class="tag tag-amber">Staffing</span></td></tr>
+        <tr><td><strong>Harbor Retirement Associates</strong></td><td>2</td><td><span class="tag tag-amber">Staffing</span></td></tr>
+        <tr><td><strong>Belmont Village Senior Living</strong></td><td>1</td><td><span class="tag tag-blue">Premium Partner</span></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size: 10px; color: #64748b; margin-top: 8px;">These communities need CNA/HHA staffing, placement referrals for families, and private duty partnerships. A home care franchise with staffing capabilities is a natural fit.</p>
+  </div>
+</div>
+
+<!-- Territory Strategy -->
+<div class="section">
+  <div class="section-title tp">90-Day Territory Strategy
+    <span class="tp-text">Here's how I'd attack the first 90 days. Month 1 is all hospitals — that's the fastest path to referrals. Discharge planners send patients home every day, and they need a reliable agency to call. Month 2, I layer in the professional network — attorneys and doctors who drive higher-value, longer-term clients. Month 3, I go deep into the community — faith-based orgs, VA, senior centers. By day 90, I'd have relationships across all three channels and a steady pipeline flowing.</span>
+  </div>
+  <div class="grid-3">
+    <div class="card tp" style="border-color: #22c55e;">
+      <span class="tp-text">Week 1: I'd get the full list of discharge planners at Broward Health North, Boca Regional, and Delray Medical. Week 2-3: face-to-face introductions with my card and a capabilities sheet. Week 4: first lunch-and-learn. At the same time, I'm visiting the top 10 SNFs — they discharge to home care daily. The goal is 15-20 discharge planner contacts by end of month 1.</span>
+      <div class="card-title" style="color: #4ade80;">Month 1: Hospital Relationships</div>
+      <ul>
+        <li>Meet discharge planners at <strong>Broward Health North</strong>, <strong>Boca Regional</strong>, <strong>Delray Medical</strong></li>
+        <li>Introduce to top 10 SNF social workers</li>
+        <li>Lunch-and-learn at 2 hospitals</li>
+        <li>Join Broward Health vendor directory</li>
+      </ul>
+    </div>
+    <div class="card tp" style="border-color: #3b82f6;">
+      <span class="tp-text">Month 2, I go after the professionals. I'd schedule meetings with Siegel, Neufeld, and Glenn — the top elder law firms. I'd bring a one-pager on how we can help their clients, maybe co-host a 'Medicaid & Home Care' workshop. For geriatricians, I'd connect through the Marcus Neuroscience Institute at Baptist Health — they see the most dementia patients in the area. I'd also attend the Broward Area Agency on Aging quarterly meeting to get plugged into the network.</span>
+      <div class="card-title" style="color: #60a5fa;">Month 2: Professional Network</div>
+      <ul>
+        <li>Meet top 5 elder law attorneys (Siegel, Neufeld, Glenn, Krooks, Smollar)</li>
+        <li>Connect with geriatricians at Marcus Neuroscience Institute</li>
+        <li>Attend Broward AAA quarterly meeting</li>
+        <li>Present at 2 care manager offices</li>
+      </ul>
+    </div>
+    <div class="card tp" style="border-color: #a855f7;">
+      <span class="tp-text">Month 3 is community depth. I'd partner with Goodman JFS and Rales JFS for senior programming — maybe sponsor a caregiver support group or health screening event. I'd visit all 7 VA clinics and introduce our veterans home care program. The Volen Center in Boca is a major senior hub — great place for a lunch-and-learn. And I'd formalize cross-referral agreements with VITAS and Trustbridge hospice, since their patients' families often need private duty alongside hospice care.</span>
+      <div class="card-title" style="color: #c084fc;">Month 3: Community Penetration</div>
+      <ul>
+        <li>Partner with Goodman JFS + Rales JFS for senior programming</li>
+        <li>VA clinic outreach (7 locations)</li>
+        <li>Event at Volen Center or Levis JCC</li>
+        <li>Cross-referral agreements with VITAS + Trustbridge hospice</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Market data sourced from CMS Home Health Compare, NPPES National Provider Registry, Census ACS 5-Year Estimates, Florida AHCA Licensure Database.
+</div>
+
+</div>
+
+</body>
+</html>
