@@ -568,7 +568,7 @@
 </div>
 
 <script>
-var map = L.map('territory-map').setView([26.22, -80.15], 11);
+var map = L.map('territory-map').setView([26.30, -80.16], 10);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap &copy; CARTO',
   maxZoom: 18
@@ -581,83 +581,81 @@ function pin(lat, lng, color, name, type) {
 }
 
 // Hospitals (blue)
-pin(26.3184, -80.1028, '#2563eb', 'Broward Health North', 'Hospital');
-pin(26.1685, -80.1186, '#2563eb', 'Broward Health Imperial Point', 'Hospital');
-pin(26.3683, -80.0984, '#2563eb', 'Boca Raton Regional Hospital (Baptist)', 'Hospital');
-pin(26.4615, -80.0838, '#2563eb', 'Delray Medical Center', 'Hospital');
-pin(26.3590, -80.1640, '#2563eb', 'West Boca Medical Center', 'Hospital');
-pin(26.1419, -80.1117, '#2563eb', 'Holy Cross Hospital', 'Hospital');
-pin(26.0112, -80.1495, '#2563eb', 'Memorial Regional Hospital South', 'Hospital');
-pin(26.0200, -80.1650, '#2563eb', 'Kindred Hospital South Florida', 'Hospital (LTACH)');
+pin(26.2770, -80.1215, '#2563eb', 'Broward Health North', 'Hospital — Deerfield Beach');
+pin(26.2073, -80.1105, '#2563eb', 'Broward Health Imperial Point', 'Hospital — Fort Lauderdale');
+pin(26.3587, -80.1019, '#2563eb', 'Boca Raton Regional Hospital', 'Hospital — Boca Raton');
+pin(26.4364, -80.1270, '#2563eb', 'Delray Medical Center', 'Hospital — Delray Beach');
+pin(26.3563, -80.2006, '#2563eb', 'West Boca Medical Center', 'Hospital — Boca Raton');
+pin(26.1872, -80.1196, '#2563eb', 'Holy Cross Hospital', 'Hospital — Fort Lauderdale');
+pin(26.0022, -80.1800, '#2563eb', 'Memorial Regional Hospital South', 'Hospital — Hollywood');
+pin(26.1191, -80.1276, '#2563eb', 'Kindred Hospital South Florida', 'Hospital (LTACH) — Fort Lauderdale');
 
 // SNF / Rehab (sky blue)
-pin(26.3550, -80.1150, '#0ea5e9', 'Avante at Boca Raton', 'SNF / Rehab');
-pin(26.1285, -80.1486, '#0ea5e9', 'Broward Nursing & Rehab Center', 'SNF / Rehab');
-pin(26.3620, -80.1050, '#0ea5e9', 'The Encore at Boca Raton', 'SNF / Rehab');
-pin(26.3520, -80.0880, '#0ea5e9', 'The Legacy at Boca Raton', 'SNF / Rehab');
-pin(26.3120, -80.0950, '#0ea5e9', 'Deerfield Beach Health & Rehab', 'SNF / Rehab');
-pin(26.2381, -80.1248, '#0ea5e9', 'Pompano Health & Rehab', 'SNF / Rehab');
-pin(26.2444, -80.2067, '#0ea5e9', 'Margate Health & Rehab', 'SNF / Rehab');
-pin(26.2619, -80.1789, '#0ea5e9', 'Solaris Healthcare Coconut Creek', 'SNF / Rehab');
-pin(26.2520, -80.2130, '#0ea5e9', 'Coral Plaza', 'SNF / Rehab');
-pin(26.0050, -80.2800, '#0ea5e9', 'Alexander Nininger Veterans NH', 'SNF / Rehab');
+pin(26.3629, -80.1094, '#0ea5e9', 'Avante at Boca Raton', 'SNF / Rehab');
+pin(26.1056, -80.1428, '#0ea5e9', 'Broward Nursing & Rehab', 'SNF / Rehab — Fort Lauderdale');
+pin(26.3500, -80.1500, '#0ea5e9', 'The Encore at Boca Raton', 'SNF / Rehab');
+pin(26.3607, -80.1432, '#0ea5e9', 'The Legacy at Boca Raton', 'SNF / Rehab');
+pin(26.2750, -80.1180, '#0ea5e9', 'Deerfield Beach Health & Rehab', 'SNF / Rehab');
+pin(26.2748, -80.1299, '#0ea5e9', 'Pompano Health & Rehab', 'SNF / Rehab');
+pin(26.2637, -80.2047, '#0ea5e9', 'Margate Health & Rehab', 'SNF / Rehab');
+pin(26.2749, -80.1814, '#0ea5e9', 'Solaris Healthcare Coconut Creek', 'SNF / Rehab');
+pin(26.2431, -80.2065, '#0ea5e9', 'Coral Plaza', 'SNF / Rehab — Margate');
+pin(26.0044, -80.2541, '#0ea5e9', 'Alexander Nininger Veterans NH', 'SNF / Rehab — Pembroke Pines');
 
 // Elder Law Attorneys (purple)
-pin(26.3586, -80.0870, '#7c3aed', 'Siegel Law Group, P.A.', 'Elder Law');
-pin(26.3650, -80.1020, '#7c3aed', 'Elder Needs Law (Jason Neufeld)', 'Elder Law');
-pin(26.3480, -80.0830, '#7c3aed', 'Boca Elder Law (Gregory Glenn)', 'Elder Law');
-pin(26.3560, -80.1100, '#7c3aed', 'Cozen O\'Connor (Howard Krooks)', 'Elder Law');
-pin(26.3700, -80.0750, '#7c3aed', 'Elder Law, P.A. (Ryan Smollar)', 'Elder Law');
-pin(26.4615, -80.0738, '#7c3aed', 'Greenberg Elder Law Services', 'Elder Law');
-pin(26.3284, -80.1000, '#7c3aed', 'Millman Law Group', 'Elder Law');
-pin(26.3786, -80.0870, '#7c3aed', 'Walser Law Firm', 'Elder Law');
-pin(26.1224, -80.2528, '#7c3aed', 'Schneider Elder Law', 'Elder Law');
-pin(26.5253, -80.0664, '#7c3aed', 'Terner Elder Law', 'Elder Law');
+pin(26.3724, -80.1209, '#7c3aed', 'Siegel Law Group, P.A.', 'Elder Law — Boca Raton');
+pin(26.3681, -80.1231, '#7c3aed', 'Elder Needs Law (Jason Neufeld)', 'Elder Law — Boca Raton');
+pin(26.3964, -80.0957, '#7c3aed', 'Boca Elder Law (Gregory Glenn)', 'Elder Law — Boca Raton');
+pin(26.3654, -80.1220, '#7c3aed', 'Cozen O\'Connor (Howard Krooks)', 'Elder Law — Boca Raton');
+pin(26.5844, -80.0492, '#7c3aed', 'Elder Law, P.A. (Ryan Smollar)', 'Elder Law — Lantana');
+pin(26.4714, -80.0918, '#7c3aed', 'Greenberg Elder Law Services', 'Elder Law — Delray Beach');
+pin(26.3708, -80.1255, '#7c3aed', 'Millman Law Group', 'Elder Law — Boca Raton');
+pin(26.3936, -80.0762, '#7c3aed', 'Walser Law Firm', 'Elder Law — Boca Raton');
+pin(26.1454, -80.2681, '#7c3aed', 'Schneider Elder Law', 'Elder Law — Plantation');
+pin(26.5457, -80.0901, '#7c3aed', 'Terner Elder Law', 'Elder Law — Boynton Beach');
 
 // Geriatricians / Neurologists (light purple)
 pin(26.3530, -80.1170, '#a855f7', 'Boca Raton Neurologic Associates', 'Geriatrician / Neuro');
-pin(26.3683, -80.0950, '#a855f7', 'Marcus Neuroscience Institute', 'Geriatrician / Neuro');
+pin(26.3587, -80.0980, '#a855f7', 'Marcus Neuroscience Institute', 'Geriatrician / Neuro — Baptist Health');
 pin(26.3450, -80.0900, '#a855f7', 'The MA Brain Health (Dr. Graef)', 'Geriatrician / Neuro');
-pin(26.3380, -80.1070, '#a855f7', 'Dr. James Galvin, MD — UM Health', 'Geriatrician / Neuro');
+pin(26.3380, -80.1070, '#a855f7', 'Dr. James Galvin, MD', 'Geriatrician / Neuro — UM Health');
 pin(26.3750, -80.0980, '#a855f7', 'Dr. Susan Rodell, MD', 'Geriatrician / Neuro');
 pin(26.3620, -80.1270, '#a855f7', 'Dr. Thomas Hammond, MD', 'Geriatrician / Neuro');
 pin(26.3480, -80.1370, '#a855f7', 'South FL Neurology Associates', 'Geriatrician / Neuro');
 
 // Hospice (orange)
-pin(26.3100, -80.1100, '#f97316', 'VITAS Healthcare', 'Hospice');
-pin(26.1350, -80.1386, '#f97316', 'Trustbridge Hospice (Fort Lauderdale)', 'Hospice');
-pin(26.3550, -80.0850, '#f97316', 'Trustbridge Hospice (Boca Raton)', 'Hospice');
-pin(26.1224, -80.2328, '#f97316', 'Heartland Hospice', 'Hospice');
-pin(26.1350, -80.2428, '#f97316', 'AccentCare Hospice', 'Hospice');
-pin(26.1519, -80.2567, '#f97316', 'Continuum Care of Broward', 'Hospice');
-pin(26.3650, -80.0920, '#f97316', 'Hospice by the Sea', 'Hospice');
-pin(26.1219, -80.1436, '#f97316', 'Hospice of Gold Coast', 'Hospice');
+pin(26.2750, -80.1292, '#f97316', 'VITAS Healthcare', 'Hospice — Deerfield Beach');
+pin(26.2034, -80.1508, '#f97316', 'Trustbridge Hospice', 'Hospice — Fort Lauderdale');
+pin(26.3508, -80.1147, '#f97316', 'Trustbridge / Hospice by the Sea', 'Hospice — Boca Raton');
+pin(26.1167, -80.2626, '#f97316', 'Heartland Hospice', 'Hospice — Plantation');
+pin(26.1162, -80.2620, '#f97316', 'AccentCare Hospice', 'Hospice — Plantation');
+pin(26.1685, -80.2766, '#f97316', 'Continuum Care of Broward', 'Hospice — Sunrise');
+pin(26.0993, -80.1396, '#f97316', 'Hospice of Gold Coast', 'Hospice — Fort Lauderdale');
 
 // VA Facilities (red)
-pin(26.3150, -80.1150, '#dc2626', 'Deerfield Beach VA Clinic', 'VA');
-pin(26.2381, -80.1348, '#dc2626', 'Pompano Beach Vet Center', 'VA');
-pin(26.1219, -80.1536, '#dc2626', 'Fort Lauderdale Vet Center', 'VA');
-pin(26.3750, -80.1270, '#dc2626', 'Boca Raton VA Clinic', 'VA');
-pin(26.0112, -80.1595, '#dc2626', 'Hollywood VA Clinic', 'VA');
-pin(26.0100, -80.2700, '#dc2626', 'Pembroke Pines VA Clinic', 'VA');
-pin(26.1519, -80.2767, '#dc2626', 'William "Bill" Kling VA Clinic', 'VA');
+pin(26.3045, -80.1322, '#dc2626', 'Deerfield Beach VA Clinic', 'VA');
+pin(26.2746, -80.1546, '#dc2626', 'Pompano Beach Vet Center', 'VA');
+pin(26.1654, -80.1975, '#dc2626', 'Fort Lauderdale Vet Center', 'VA — Lauderdale Lakes');
+pin(26.3590, -80.1048, '#dc2626', 'Boca Raton VA Clinic', 'VA');
+pin(26.0030, -80.1807, '#dc2626', 'Hollywood VA Clinic', 'VA');
+pin(26.0319, -80.2360, '#dc2626', 'Pembroke Pines VA Clinic', 'VA');
+pin(26.1936, -80.2791, '#dc2626', 'William "Bill" Kling VA Clinic', 'VA — Sunrise');
 
 // Community / Faith (green)
-pin(26.0724, -80.2428, '#16a34a', 'Goodman JFS of Broward', 'Community');
-pin(26.3750, -80.1370, '#16a34a', 'Ruth & Norman Rales JFS', 'Community');
-pin(26.7053, -80.0564, '#16a34a', 'Alpert JFS of Palm Beach', 'Community');
-pin(26.3850, -80.1270, '#16a34a', 'Levis JCC', 'Community');
-pin(26.3690, -80.1450, '#16a34a', 'Jewish Federation of S. Palm Beach', 'Community');
-pin(26.3900, -80.1270, '#16a34a', 'B\'nai Torah Congregation', 'Community');
-pin(26.3786, -80.0970, '#16a34a', 'Boca Raton Synagogue', 'Community');
-pin(26.3680, -80.1370, '#16a34a', 'Temple Beth El', 'Community');
-pin(26.3184, -80.1200, '#16a34a', 'Chabad of Deerfield Beach', 'Community');
-pin(26.2619, -80.1889, '#16a34a', 'Chabad of Coconut Creek', 'Community');
+pin(26.0458, -80.2596, '#16a34a', 'Goodman JFS of Broward', 'Community — Davie');
+pin(26.3440, -80.1970, '#16a34a', 'Ruth & Norman Rales JFS', 'Community — Boca Raton');
+pin(26.7632, -80.0913, '#16a34a', 'Alpert JFS of Palm Beach', 'Community — West Palm Beach');
+pin(26.3560, -80.2000, '#16a34a', 'Levis JCC', 'Community — Boca Raton');
+pin(26.3302, -80.0949, '#16a34a', 'B\'nai Torah Congregation', 'Community — Boca Raton');
+pin(26.3462, -80.1675, '#16a34a', 'Boca Raton Synagogue', 'Community — Boca Raton');
+pin(26.3462, -80.0944, '#16a34a', 'Temple Beth El', 'Community — Boca Raton');
+pin(26.3178, -80.1295, '#16a34a', 'Chabad of Deerfield Beach', 'Community');
+pin(26.3231, -80.1991, '#16a34a', 'Chabad of Coconut Creek', 'Community');
 
 // Senior Services (gold)
-pin(26.1519, -80.2667, '#ca8a04', 'Area Agency on Aging — Broward', 'Senior Services');
-pin(26.6953, -80.0664, '#ca8a04', 'Area Agency on Aging — Palm Beach', 'Senior Services');
-pin(26.3486, -80.0770, '#ca8a04', 'The Volen Center', 'Senior Services');
+pin(26.1937, -80.2877, '#ca8a04', 'Area Agency on Aging — Broward', 'Senior Services — Sunrise');
+pin(26.7381, -80.0897, '#ca8a04', 'Area Agency on Aging — Palm Beach', 'Senior Services — West Palm Beach');
+pin(26.3508, -80.1145, '#ca8a04', 'The Volen Center', 'Senior Services — Boca Raton');
 </script>
 </body>
 </html>
